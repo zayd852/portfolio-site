@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayid Portfolio</title>
+
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<script>
+    function showSection(id) {
+
+    // ❌ This selects ALL sections including pros-cons
+    // const sections = document.querySelectorAll("section");
+
+    // ✅ FIX: exclude pros-cons so popup won't be hidden
+    const sections = document.querySelectorAll("section:not(.pros-cons)");
+
+    sections.forEach(sec => {
+        sec.style.display = "none";
+    });
+
+    const panels = document.querySelectorAll(".pros-cons");
+    panels.forEach(p => p.classList.remove("active"));
+
+    const active = document.getElementById(id);
+
+    if (id === "home") {
+        active.style.display = "flex";
+    } else {
+        active.style.display = "block";
+    }
+}
+
+     window.onload = () => showSection('home');
+     
+    </script>
+
+<script>
+    function toggleMoreInfo() {
+    const section = document.getElementById("more-info");
+
+    if (section.style.display === "block") {
+        section.style.display = "none";
+    } else {
+        section.style.display = "block";
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+function scrollToProjects() {
+    showSection('projects'); // SWITCH SECTION
+    setTimeout(() => {
+        document.getElementById("projects").scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 100);
+}
+
+function toggleProsCons() {
+    const panel = document.getElementById("pros-cons");
+    panel.classList.toggle("active");
+}
+
+function goBackHome() {
+    window.location.href = "index.html";
+}
+
+</script>
+
+   <body>
+
+    <a href="index.html?skipIntro=true#profiles" class="back-btn">← Back to Profiles</a>
+
+   <!-- NAVBAR -->
+     <nav class="navbar">
+        <ul>
+           <li><a href="#" onclick="showSection('home')">HOME</a></li>
+           <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+           <li><a href="#" onclick="showSection('skills')">SKILLS</a></li>
+           <li><a href="#" onclick="showSection('projects')">PROJECTS</a></li>
+           <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
+        </ul>
+     </nav>
+
+     <!-- HOME SECTION -->
+<section id="home" class="home sayid-bg">
+
+    <div class="overlay"></div> <!-- DARK OVERLAY -->
+
+    <!-- LEFT SIDE (TEXT) -->
+    <div class="home-content">
+
+        <!-- NEW SMALL IMAGE -->
+         <img src="images/sayid.jpg" alt="profile" class="profile-banner">
+
+        <h3 class="role">IT STUDENT</h3>
+        <h1>SAYID USISON</h1>
+        <h2>BSIT-1R</h2>
+
+        <p class="desc">
+            Passionate IT student focused on web development and creative design.
+            I enjoy building interactive websites, editing media, and learning new technologies.
+        </p>
+
+        <div class="buttons">
+            <button onclick="scrollToProjects()">▶ View Projects</button>
+            <button onclick="toggleMoreInfo()" class="more-btn">More Info</button>
+            <button onclick="toggleProsCons()"  class="pros-btn">⚡ Pros & Cons</button>
+        </div>
+    </div> 
+
+</section>
+
+<!-- MORE INFO SECTION (SEPARATE) -->
+<section id="more-info" class="more-info">
+
+    <div class="info-grid">
+
+        <div>
+            <h3>EDUCATION</h3>
+            <ul>
+                <li>BSIT - 1R (Current)</li>
+                <li>Senior High School Graduate IT Strand (2023-2025)</li>
+                <li>Junior High School Graduate (2019-2023)</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>EXPERIENCE</h3>
+            <ul>
+                <li>Student Developer Project</li>
+                <li>Group Web Development</li>
+                <li>Basic Editing</li>
+                <li>Singing / Battle of the Bands / Chorale Competition</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>INTEREST</h3>
+            <ul>
+                <li>Web Design & UI/UX</li>
+                <li>Cover Songs</li>
+                <li>Creative Projects</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>LANGUAGES</h3>
+            <ul>
+                <li>English</li>
+                <li>Filipino</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+       <section id="pros-cons" class="pros-cons">
+
+        <div class="pc-container">
+
+            <!-- HEADER -->
+             <div class="pc-header">
+                <h2>⚡ Pros & Cons</h2>
+                <p>Strengths vs Weaknesses</p>
+                <span onclick="toggleProsCons()" class="close-btn">✖</span>
+             </div>
+
+             <!-- CONTENT -->
+              <div class="pc-content">
+
+                <!-- STRENGTHS -->
+                 <div class="pc-box">
+                    <h3>STRENGTHS</h3>
+                    <div class="card">Creative Thinking</div>
+                    <div class="card">Team Player</div>
+                    <div class="card">Attention to Detail</div>
+                    <div class="card">Loyal</div>
+                    <div class="card">Determined</div>
+                 </div>
+
+                 <!-- WEAKNESSES -->
+                  <div class="pc-box">
+                    <h3>WEAKNESSES</h3>
+                    <div class="card">Overthinking</div>
+                    <div class="card">Time Management</div>
+                    <div class="card">Easily Distracted</div>
+                    <div class="card">Procrastination</div>
+                    <div class="card">Stubborn</div>
+                  </div>
+
+              </div>
+
+        </div>
+
+       </section>
+
+
+      <!-- ABOUT -->
+       <section id="about" class="about">
+
+        <h1 class="about-title">WHAT I DO</h1>
+
+        <!-- ITEM 1 -->
+         <div class="about-row">
+            <div class="about-text">
+                <h3>I SING</h3>
+                <p>I express myself through music and performance, especially through singing. Since I was a child, I have loved music. Whenever my mom played songs, I would instantly vibe with them, and that passion has stayed with me until now.
+
+I joined multiple singing competitions during senior high school, and winning first place in my first competition became one of the most unforgettable moments of my life. Singing holds a special place in my heart because it allows me to express my emotions and gives me comfort, especially during difficult times.
+
+Listening to music is part of my daily routine. It helps me relax, whether before going to sleep or while doing chores. Through music, I can express my unspoken thoughts and emotions, whether I am happy or sad. To me, music is truly a beautiful part of life. For me, life without music would be a mistake.</p>
+            </div>
+
+            <div class="about-img">
+                <img src="images/sayide.jpg" alt="Singing">
+            </div>
+         </div>
+
+         <!-- ITEM 2 -->
+
+         <div class="about-row">
+            <div class="about-text">
+                <h3>WEB DESIGN (UX/UI)</h3>
+                <p>I design clean and user-friendly interfaces. As a student, I continuously practice my programming skills to create clean, organized, interactive, and user-friendly websites. Through this, I enhance my skills and knowledge while ensuring that users can navigate my projects smoothly without errors or dissatisfaction. These qualities are essential when creating a webpage.
+
+As a user, this is also what I want to see in a website. I understand how difficult and frustrating it can be to explore a site that is not interactive and not well organized. That is why whenever my professor assigns a website project, I make sure that my work reflects creativity, cleanliness, and a user-friendly design.
+
+Most importantly, I truly enjoy working on websites because it allows me to use both my critical thinking and creativity. I love designing interfaces because they can influence a user’s mood and overall experience. A clean and well-structured design helps users feel at ease and allows them to navigate the website properly.</p>
+            </div>
+
+            <div class="about-img">
+                <img src="images/website.jpg" alt="Web Design">
+            </div>
+         </div>
+
+       </section>
+
+      <!-- SKILLS --> 
+       <section id="skills" class="skills">
+
+        <h1 class="skills-title">SKILLS
+
+            <div class="skills-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="skills-left">
+
+                    <div class="skill-item">
+                        <p>Short Film Director/Actor</p>
+                        <div class="bar"><span style="width: 90%"></span></div>
+
+                    </div>
+
+                    <div class="skill-item">
+                        <p>Documentary Production</p>
+                        <div class="bar"><span style="width: 85%"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <p>Video Editing (Capcut)</p>
+                        <div class="bar"><span style="width: 88%"></span></div>
+                    </div>
+
+                     <div class="skill-item">
+                        <p>Photo Editing (Photoshop, Photopea)</p>
+                        <div class="bar"><span style="width: 85%"></span></div>
+                    </div>
+
+                     <div class="skill-item">
+                        <p>Web & App Dev (HTML, JS, AI ASSISTED)</p>
+                        <div class="bar"><span style="width: 80%"></span></div>
+                    </div>
+
+                     <div class="skill-item">
+                        <p>Dev Tools (Visual Studio Code, Intelij Idea)</p>
+                        <div class="bar"><span style="width: 82%"></span></div>
+                    </div>
+
+                    </div>
+
+                    <!-- RIGHT SIDE (IMAGES) -->
+                     <div class="skills-right">
+                        <img src="images/website spiderman.jpg">
+                        <img src="images/elfilibusterismo.jpg">
+                        <img src="images/luneta.jpg">
+
+                     </div>
+
+                </div>
+                        
+        </h1>
+       </section>
+
+
+       <!-- PROJECTS -->
+        <section id="projects" class="projects">
+
+            <h1 class="projects-title">PROJECTS</h1>
+
+            <div class="projects-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="projects-left">
+
+                    <div class="project-box">
+                        <h3>DEVELOPED APPLICATIONS</h3>
+                        <p>
+                            I have been part of developing a time and task management application for senior high school students. I also contributed to creating an interactive Tic-Tac-Toe game.
+                        </p>
+                    </div>
+
+                    <div class="project-box">
+                        <h3>DEVELOPED WEBSITES</h3>
+                        <p>
+                            Created interactive, clean, and user-friendly websites with well-designed interfaces.
+                        </p>
+                    </div>
+
+                    <div class="project-box">
+                        <h3>FLYER DESIGN FOR APPLICATION PROMOTION</h3>
+                        <p>
+                            Designed a flyer focused on clarity, creativity, and easy readability.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                 <div class="projects-right">
+                    <img src="images/tic-tac-toe main menu.jpg">
+                    <img src="images/tic-tac-toe.jpg">
+                    <img src="images/TickTask Flyer.jpg">
+                 </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+         <section id="contact" class="contact">
+            <div class="contact-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="contact-info">
+                    <h1>LET'S WORK TOGETHER</h1>
+
+                    <p><strong>Email</strong><br>sayidusison14@gmail.com</p>
+                    <p><strong>Phone</strong><br>+63 969 349 4169</p>
+
+                    <p><strong>Follow me</strong></p>
+                    <div class="socials">
+                        <a href="https://www.facebook.com/sayid.usison.5" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/_saidnotfound/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                     </div> 
+                     
+                </div>
+
+                <!-- RIGHT SIDE -->
+                 <div class="contact-form">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message"></textarea>
+                    <button>Submit</button>
+                 </div>
+         </section>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+/* --------------------------------------------------
+   INTRO SCREEN
+-------------------------------------------------- */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* LOGO STYLING */
+.logo {
+    font-family: 'Nosifer', cursive;
+    font-size: 90px; /* bigger */
+    color: #FF5E5E;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 5px #FF7F7F,
+        0 0 15px #FF5E5E,
+        0 0 30px #FF9999,
+        0 0 2px #fff;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: showLogo 2s ease forwards, flicker 1.5s infinite;
+}
+
+/* LOGO ANIMATION */
+@keyframes showLogo {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* FLICKER EFFECT */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.85;
+    }
+}
+
+/* FADE OUT WHEN HIDE CLASS IS ADDED */
+#intro.hide {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* HIDE MAIN CONTENT FIRST */
+#main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#main-content.show {
+    display: block;
+    opacity: 1;
+}
+
+/* --------------------------------------------------
+   GENERAL STYLES
+-------------------------------------------------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    perspective: 1500px; /* makes 3d rotations visible */
+    color: white;
+    text-align: center;
+}
+
+/* HEADER */
+.header {
+   position: absolute;
+   top: 20px;
+   width: 100%;
+}
+
+.header h1 {
+    color: red;
+    font-size: 60px;  /* make it big */
+    letter-spacing: 3px; /* optional adds style */
+    font-weight: bold;
+}
+
+/* WHO'S WATCHING? */
+.profiles-section {
+    height: 100vh;         /*full screen*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* vertical center */
+    align-items: center;     /* hoizontal center */
+}
+
+.profiles-section h2 {
+    margin: 0;        /* remove top push */
+    font-size: 40px; /* bigger */
+    font-weight: bold;
+}
+
+/* PROFILES GRID */
+.profiles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* larger gap for bigger profiles */
+    margin-top: 30px;
+}
+
+.profile {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px
+}
+
+.profile:hover {
+    background-color: #2a2a2a;
+}
+
+.profiles:hover .profile {
+    opacity: 0.5;
+}
+
+.profiles .profile:hover {
+    opacity: 1;
+}
+
+.profile img {
+    width: 160px; /* larger profile image */
+    height: 160px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.profile img:hover {
+    transform: scale(1.15);
+    border: 3px solid white;
+}
+
+.profile p {
+    margin-top: 10px;
+    font-size: 18px; /* larger name text */
+    font-weight: bold;
+}
+
+.profile small {
+    display: block;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* GATE PAGE ANIMATION */
+
+.page-gate-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000;
+}
+
+.page-gate {
+    position: absolute;
+    top: 0;
+    width: 50vw;
+    height: 100vh;
+    background: #141414;
+    transition: transform 0.8s ease;
+}
+
+/* LEFT */
+.page-gate.left {
+    left: 0;
+    transform: translateX(0);
+}
+
+/* RIGHT */
+.page-gate.right {
+    right: 0;
+    transform: translateX(0);
+}
+
+/* OPEN */
+.page-gate.left.open {
+    transform: translateX(-100%);
+}
+
+.page-gate.right.open {
+    transform: translateX(100%);
+}

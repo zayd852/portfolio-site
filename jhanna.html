@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jhanna Portfolio</title>
+
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- your navbar, sections, etc go here -->
+
+<script>
+function showSection(id) {
+    const sections = document.querySelectorAll("section:not(.pros-cons)");
+    sections.forEach(sec => {
+        sec.style.display = "none";
+    });
+
+    const panels = document.querySelectorAll(".pros-cons");
+    panels.forEach(p => p.classList.remove("active"));
+
+    const active = document.getElementById(id);
+
+    if (id === "home") {
+        active.style.display = "flex";
+    } else {
+        active.style.display = "block";
+    }
+}
+
+function toggleMoreInfo() {
+    const section = document.getElementById("more-info");
+
+    if (section.style.display === "block") {
+        section.style.display = "none";
+    } else {
+        section.style.display = "block";
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+function scrollToProjects() {
+    document.getElementById("projects").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function scrollToProjects() {
+    showSection('projects'); // SWITCH SECTION
+    setTimeout(() => {
+        document.getElementById("projects").scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 100);
+}
+
+function toggleProsConsJhanna() {
+    console.log("BUTTON CLICKED"); 
+    const panel = document.getElementById("pros-cons-jhanna");
+    panel.classList.toggle("active");
+}
+
+window.addEventListener("load", () => {
+    showSection('home');
+});
+</script>
+
+</body>
+</html>
+
+   <body>
+
+    <a href="index.html?skipIntro=true#profiles" class="back-btn">← Back to Profiles</a>
+
+    <!-- NAVBAR -->
+     <nav class="navbar">
+        <ul>
+           <li><a href="#" onclick="showSection('home')">HOME</a></li>
+           <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+           <li><a href="#" onclick="showSection('skills')">SKILLS</a></li>
+           <li><a href="#" onclick="showSection('projects')">PROJECTS</a></li>
+           <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
+        </ul>
+     </nav>
+
+     <!-- HOME SECTION -->
+<section id="home" class="home jhanna-bg">
+
+    <div class="overlay"></div> <!-- DARK OVERLAY -->
+
+    <!-- LEFT SIDE (TEXT) -->
+    <div class="home-content">
+
+        <!-- NEW SMALL IMAGE -->
+         <img src="images/jhanna.jpg" alt="profile" class="profile-banner">
+
+        <h3 class="role">IT STUDENT</h3>
+        <h1>JHANNA HUGO</h1>
+        <h2>BSIT-1R</h2>
+
+        <p class="desc">
+            A PLMUN IT student and ROTC medic who is still learning the basics of programming and web development. Eager to improve skills, gain knowledge, and grow through both academic projects and hands-on training in the field.
+        </p>
+
+        <div class="buttons">
+            <button onclick="scrollToProjects()">▶ View Projects</button>
+            <button onclick="toggleMoreInfo()" class="more-btn">More Info</button>
+            <button onclick="toggleProsConsJhanna()" class="pros-btn">⚡ Pros & Cons</button>
+        </div>
+
+    </div> 
+
+</section>
+
+<!-- MORE INFO SECTION (SEPARATE) -->
+<section id="more-info" class="more-info">
+
+    <div class="info-grid">
+
+        <div>
+            <h3>EDUCATION</h3>
+            <ul>
+                <li>BSIT - 1R (Current)</li>
+                <li>Senior High School Graduate Stem Strand (2022-2024)</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>EXPERIENCE</h3>
+            <ul>
+                <li>Student Developer Project</li>
+                <li>Research Project</li>
+                <li>Web Developer</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>INTEREST</h3>
+            <ul>
+                <li>Read</li>
+                <li>Watch</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>LANGUAGES</h3>
+            <ul>
+                <li>English</li>
+                <li>Filipino</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+         
+     <section id="pros-cons-jhanna" class="pros-cons">
+
+        <div class="pc-container">
+
+            <!-- HEADER -->
+             <div class="pc-header">
+                <h2>⚡ Pros & Cons</h2>
+                <p>Strengths vs Weaknesses</p>
+                <span onclick="toggleProsConsJhanna()" class="close-btn">✖</span>
+             </div>
+
+            <!-- CONTENT -->
+              <div class="pc-content">
+
+                <!-- STRENGTHS -->
+                 <div class="pc-box">
+                    <h3>STRENGTHS</h3>
+                    <div class="card">Good Listener</div>
+                    <div class="card">Makes Friends Easily</div>
+                    <div class="card">Great on One-on-One Talks</div>
+                
+                 </div>
+
+                 <!-- WEAKNESSES -->
+                  <div class="pc-box">
+                    <h3>WEAKNESSES</h3>
+                  <div class="card">Afraid of talking in front of people </div>
+                  <div class="card">Hard to Speak Up</div>
+                  <div class="card">Sticks to Comfort Zone</div>
+                    
+              </div>
+
+        </div>
+
+       </section>
+
+
+      <!-- ABOUT -->
+       <section id="about" class="about">
+
+        <h1 class="about-title">WHAT I DO</h1>
+
+        <!-- ITEM 1 -->
+         <div class="about-row">
+            <div class="about-text">
+                <h3>READING</h3>
+                <p>I enjoy reading stories from different genres because it allows me to explore new ideas, emotions, and perspectives. Whether it’s romance, mystery, fantasy, or adventure, I love how books can take me to different worlds and help me understand different characters and situations. Reading also helps me relax, improve my imagination, and expand my vocabulary</p>
+            </div>
+
+            <div class="about-img">
+                <img src="images/reading.jpg" alt="Reading">
+            </div>
+         </div>
+
+         <!-- ITEM 2 -->
+
+         <div class="about-row">
+            <div class="about-text">
+                <h3>WATCHING MOVIES/SERIES</h3>
+                <p>I also love watching movies of different genres depending on my mood and interests. Whether it’s comedy, drama, action, or animated films, I enjoy how movies bring stories to life through visuals and emotions. Watching movies entertains me and sometimes teaches me valuable lessons about life, relationships, and personal growth.</p>
+            </div>
+
+            <div class="about-img">
+                <img src="images/jhannamovie.jpg" alt="Watching">
+            </div>
+         </div>
+
+       </section>
+
+      <!-- SKILLS --> 
+       <section id="skills" class="skills-box">
+
+        <h1 class="skills-title">SKILLS
+
+            <div class="skills-wrapper">
+
+            <!-- LEFT: BLACK BOX (TEXT ONLY) -->
+            <div class="skills-content jhanna-skills-content">
+
+               <h3>🧠 WHAT I DO BEST</h3>
+
+               <ul>
+                    <li>In my opinion, I don’t have many skills that I can confidently talk about yet, but there is one skill that I am seriously studying and trying to improve, and that is becoming a first aider. I am a Medic Support Unit member in our ROTC, which is something I have always wanted to be part of. I am also hoping to pass the PERT (Pamantasan ng Lungsod ng Muntinlupa Emergency Response Team), which is also focused on being a first aider and responding to emergencies. Because of these experiences, I can say that this is a skill that I am developing and continuously working hard to improve. I am eager to learn more, gain experience, and use this skill to help people in times of need.</li>
+
+                    </ul>
+
+                </div>
+
+                    <!-- RIGHT: IMAGES -->
+                     <div class="skills-images">
+                        <img src="images/jhannaro.jpg">
+                        <img src="images/jhannatc.jpg">
+
+                     </div>
+
+                </div>
+                        
+        </h1>
+       </section>
+
+
+       <!-- PROJECTS -->
+        <section id="projects" class="projects">
+
+            <h1 class="projects-title">PROJECTS</h1>
+
+            <div class="projects-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="projects-left">
+
+                    <div class="project-box">
+                        <h3>RESEACH PROJECT</h3>
+                        <p>
+                        During my senior high school years, our professor assigned us a research project where we were asked to create a study that could help people in some way. My group came up with the idea of producing voltage using ingredients that can easily be found at home or quickly purchased. We were able to successfully complete the experiment, and our final project turned out to be a success. Through this experience, I learned the importance of teamwork, problem-solving, and creativity. It also helped me develop patience and perseverance, especially when we encountered challenges during the experimentation process. Overall, the project gave me confidence in my ability to collaborate with others and apply what I have learned in real-life situations.</p>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                 <div class="projects-right">
+                    <img src="images/jhannaresearch.jpg">
+                    <img src="images/jhannaproject.jpg">
+                 </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+         <section id="contact" class="contact">
+            <div class="contact-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="contact-info">
+                    <h1>LET'S WORK TOGETHER</h1>
+
+                    <p><strong>Email</strong><br>jhannahugo@gmail.com</p>
+                    <p><strong>Phone</strong><br>+63 999 834 2666</p>
+
+                    <p><strong>Follow me</strong></p>
+                    <div class="socials">
+                        <a href="https://www.facebook.com/jhannamae.hugo.05" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/jmhg_06/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                     </div> 
+                     
+                </div>
+
+                <!-- RIGHT SIDE -->
+                 <div class="contact-form">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message"></textarea>
+                    <button>Submit</button>
+                 </div>
+         </section>
+
+</body>
+</html>

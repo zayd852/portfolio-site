@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Richard Portfolio</title>
+
+<link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- your navbar, sections, etc go here -->
+
+<script>
+function showSection(id) {
+    const sections = document.querySelectorAll("section:not(.pros-cons)");
+    sections.forEach(sec => {
+        sec.style.display = "none";
+    });
+
+    const panels = document.querySelectorAll(".pros-cons");
+    panels.forEach(p => p.classList.remove("active"));
+
+    const active = document.getElementById(id);
+
+    if (id === "home") {
+        active.style.display = "flex";
+    } else {
+        active.style.display = "block";
+    }
+}
+
+function toggleMoreInfo() {
+    const section = document.getElementById("more-info");
+
+    if (section.style.display === "block") {
+        section.style.display = "none";
+    } else {
+        section.style.display = "block";
+        section.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+function scrollToProjects() {
+    showSection('projects'); // SWITCH SECTION
+    setTimeout(() => {
+        document.getElementById("projects").scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 100);
+}
+
+function toggleProsConsRichard() {
+    console.log("BUTTON CLICKED"); 
+    const panel = document.getElementById("pros-cons-richard");
+    panel.classList.toggle("active");
+}
+
+window.addEventListener("load", () => {
+    showSection('home');
+});
+</script>
+
+</body>
+</html>
+
+   <body>
+
+    <a href="index.html?skipIntro=true#profiles" class="back-btn">← Back to Profiles</a>
+
+    <!-- NAVBAR -->
+     <nav class="navbar">
+        <ul>
+           <li><a href="#" onclick="showSection('home')">HOME</a></li>
+           <li><a href="#" onclick="showSection('about')">ABOUT</a></li>
+           <li><a href="#" onclick="showSection('skills')">SKILLS</a></li>
+           <li><a href="#" onclick="showSection('projects')">PROJECTS</a></li>
+           <li><a href="#" onclick="showSection('contact')">CONTACT</a></li>
+        </ul>
+     </nav>
+
+     <!-- HOME SECTION -->
+<section id="home" class="home richard-bg">
+
+    <div class="overlay"></div> <!-- DARK OVERLAY -->
+
+    <!-- LEFT SIDE (TEXT) -->
+    <div class="home-content">
+
+        <!-- NEW SMALL IMAGE -->
+         <img src="images/richard.jpg" alt="profile" class="profile-banner">
+
+        <h3 class="role">IT STUDENT</h3>
+        <h1>RICHARD</h1>
+        <h2>BSIT-1R</h2>
+
+        <p class="desc">
+            Passionate developer creating scalable web applications. Specialized in React,
+            Node js,and cloud architecture. Love solving complex problems with elegant
+            solutions and building products that make a difference.
+        </p>
+
+        <div class="buttons">
+            <button onclick="scrollToProjects()">▶ View Projects</button>
+            <button onclick="toggleMoreInfo()" class="more-btn">More Info</button>
+            <button onclick="toggleProsConsRichard()" class="pros-btn">⚡ Pros & Cons</button>
+        </div>
+
+    </div> 
+
+</section>
+
+<!-- MORE INFO SECTION (SEPARATE) -->
+<section id="more-info" class="more-info">
+
+    <div class="info-grid">
+
+        <div>
+            <h3>EDUCATION</h3>
+            <ul>
+                <li>BSIT - 1R (Current)</li>
+                <li>Senior High School Graduate H.E Strand (2023-2025)</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>EXPERIENCE</h3>
+            <ul>
+                <li>Student Developer Project</li>
+                <li>Photoshop Edit</li>
+                <li>Basic Editing</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>INTEREST</h3>
+            <ul>
+                <li>Game Developer</li>
+                <li>Web Designer</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>LANGUAGES</h3>
+            <ul>
+                <li>English</li>
+                <li>Filipino</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+         
+     <section id="pros-cons-richard" class="pros-cons">
+
+        <div class="pc-container">
+
+            <!-- HEADER -->
+             <div class="pc-header">
+                <h2>⚡ Pros & Cons</h2>
+                <p>Strengths vs Weaknesses</p>
+                <span onclick="toggleProsConsRichard()" class="close-btn">✖</span>
+             </div>
+
+            <!-- CONTENT -->
+              <div class="pc-content">
+
+                <!-- STRENGTHS -->
+                 <div class="pc-box">
+                    <h3>STRENGTHS</h3>
+                    <div class="card">High adaptability — learns fast in any environment</div>
+                    <div class="card">Strong game sense — strategic thinking & decision-making  </div>
+                    <div class="card">turns ideas into visuals and content</div>
+                    <div class="card">Competitive mindset — always pushing to improve</div>
+                 </div>
+
+                 <!-- WEAKNESSES -->
+                  <div class="pc-box">
+                    <h3>WEAKNESSES</h3>
+                    <div class="card">Perfectionist tendency — spends extra time refining details</div>
+                    <div class="card">Overthinking plays — especially in high-pressure situations </div>
+                    <div class="card">Hyper-focus mode — can forget time while grinding or working</div>
+                  </div>
+
+              </div>
+
+        </div>
+
+       </section>
+
+
+      <!-- ABOUT -->
+       <section id="about" class="about">
+
+        <h1 class="about-title">WHAT I DO</h1>
+
+        <!-- ITEM 1 -->
+         <div class="about-row">
+            <div class="about-text">
+                <h3>PLAYING GAMES</h3>
+                <p>I enjoy spending my free time playing mobile games, especially gacha games, even if it means sometimes spending money on things that aren’t really necessary—just for the fun of it. It’s something that keeps me entertained and gives me a little excitement.</p>
+            </div>
+
+            <div class="about-img">
+                <img src="images/game.jpg" alt="Playing">
+            </div>
+         </div>
+
+         <!-- ITEM 2 -->
+
+         <div class="about-row">
+            <div class="about-text">
+                <h3>I DRAW</h3>
+                <p>I also like drawing, especially when I’m feeling stressed. I usually draw simple things like flowers because it helps me relax and clear my mind. I used to post my drawings on Instagram, but lately I’ve stopped and just keep them to myself, even though drawing is still something I genuinely enjoy doing.</p>
+            </div>
+
+            <div class="about-img">
+                <img src="images/drawing.jpg" alt="Drawing">
+            </div>
+         </div>
+
+       </section>
+
+      <!-- SKILLS --> 
+       <section id="skills" class="skills-box">
+
+        <h1 class="skills-title">SKILLS</h1>
+
+            <div class="skills-wrapper">
+
+            <!-- LEFT: BLACK BOX (TEXT ONLY) -->
+            <div class="skills-content">
+
+               <h3>🧠 WHAT I DO BEST</h3>
+
+                <ul>
+                    <li>I adapt fast to any game I play — especially strategy and gacha-based systems</li>
+                    <li>Strong decision-making under pressure (FPS & competitive games)</li>
+                    <li>I enjoy mastering mechanics and understanding game systems deeply</li>
+                </ul>
+
+                <h3>🎬 OUTSIDE GAMING</h3>
+
+                <ul>
+                    <li>I create and edit videos with strong visual storytelling</li>
+                    <li>I design and build simple web projects</li>
+                    <li>I turn ideas into creative outputs (film, edits, visuals)</li>
+                    <li>I like drawing also</li>
+                </ul>
+                </div>
+
+                    <!-- RIGHT: IMAGES -->
+                     <div class="skills-images">
+                        <img src="images/mobilelegend.jpg">
+                        <img src="images/richardedit.jpg">
+                        <img src="images/richardwebsite.jpg">
+
+                     </div>
+
+                </div>
+                        
+       </section>
+
+
+       <!-- PROJECTS -->
+        <section id="projects" class="projects">
+
+            <h1 class="projects-title">PROJECTS</h1>
+
+            <div class="projects-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="projects-left">
+
+                    <div class="project-box">
+                        <h3>DEVELOPED WEBSITES</h3>
+                        <p>
+                        I create intuitive navigation and clean layouts, ensuring visitors can find information effortlessly.
+                        </p>
+                    </div>
+
+                    <div class="project-box">
+                        <h3>CANVA PRESENTATION</h3>
+                        <p>
+                            I can create simple and neat presentations using Canva by choosing good templates, organizing information clearly, and adding basic design elements to make my slides more interesting.
+                        </p>
+                    </div>
+
+                    <div class="project-box">
+                        <h3>FILM EDITOR</h3>
+                        <p>
+                            I can edit short films by arranging clips smoothly, adding basic transitions, and ensuring the video tells a clear and engaging story.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                 <div class="projects-right">
+                    <img src="images/richardwebsite.jpg">
+                    <img src="images/richardcanva.jpg">
+                 </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+         <section id="contact" class="contact">
+            <div class="contact-container">
+
+                <!-- LEFT SIDE -->
+                 <div class="contact-info">
+                    <h1>LET'S WORK TOGETHER</h1>
+
+                    <p><strong>Email</strong><br>richarddacleson@gmail.com</p>
+                    <p><strong>Phone</strong><br>+63 969 349 4169</p>
+
+                    <p><strong>Follow me</strong></p>
+                    <div class="socials">
+                        <a href="https://www.facebook.com/richard.dacleson" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/zenu.mp4/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                     </div> 
+                     
+                </div>
+
+                <!-- RIGHT SIDE -->
+                 <div class="contact-form">
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea placeholder="Message"></textarea>
+                    <button>Submit</button>
+                 </div>
+         </section>
+
+</body>
+</html>
